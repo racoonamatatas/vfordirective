@@ -3,7 +3,7 @@
     <ul>
         <li v-for="task in tasks" :key="task.name">
             {{ task.name }} {{ task.completed ? '(Completed)' : '(Not Completed)' }}
-            <button @click="complete(task.name)">Toggle</button>
+            <button @click="toggleTask(task.name)">Toggle</button>
         </li>
     </ul>
 </template>
@@ -21,7 +21,7 @@ const tasks = ref([
 ]);
 
 // function to toggle completed property.
-const complete = taskName => {
+const toggleTask = taskName => {
     const task = tasks.value.find(task => task.name === taskName);
     if (task) {
         task.completed = !task.completed;
