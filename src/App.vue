@@ -1,3 +1,13 @@
+<template>
+    <h1>{{ header }}</h1>
+    <ul>
+        <li v-for="task in tasks" :key="task.name">
+            {{ task.name }} {{ task.completed ? '(Completed)' : '(Not Completed)' }}
+            <button @click="complete(task.name)">Toggle</button>
+        </li>
+    </ul>
+</template>
+
 <script setup>
 import {ref} from 'vue';
 
@@ -18,13 +28,3 @@ const complete = taskName => {
     }
 };
 </script>
-
-<template>
-    <h1>{{ header }}</h1>
-    <ul>
-        <li v-for="task in tasks" :key="task.name">
-            {{ task.name }} {{ task.completed ? '(Completed)' : '(Not Completed)' }}
-            <button @click="complete(task.name)">Toggle</button>
-        </li>
-    </ul>
-</template>
