@@ -1,7 +1,7 @@
 <template>
     <h1>{{ header }}</h1>
     <ul>
-        <li v-for="task in tasks" :key="task.name">
+        <li v-for="(task, index) in tasks" :key="index">
             {{ task.name }} {{ task.completed ? '(Completed)' : '(Not Completed)' }}
             <button @click="toggleTask(task.name)">Toggle</button>
         </li>
